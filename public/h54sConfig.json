@@ -1,0 +1,6 @@
+{
+    "ajaxTimeout": 120000,
+    "sasVersion": "v9",
+    "maxXhrRetries": 1,
+    "hostUrl": "http://localhost:8080/"
+}

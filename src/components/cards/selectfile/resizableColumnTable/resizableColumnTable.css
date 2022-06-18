@@ -1,0 +1,62 @@
+.resizable-table{
+    /*width: 100%;*/
+    /*min-width: 100vw;*/
+    overflow: auto; /* Allow scrolling within the table */
+    flex: 1;
+    display: grid!important;
+    border-collapse: collapse;
+    /* These are just initial values which are overriden using JavaScript when a column is resized */
+    grid-template-columns:
+    minmax(150px, 1fr)
+    minmax(150px, 1.67fr)
+    minmax(150px, 1.67fr);
+}
+
+.resizable-table thead,
+.resizable-table tbody,
+.resizable-table tr {
+    display: contents;
+}
+
+.resizable-table th,
+.resizable-table td,
+.resizable-table button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.resizable-table th {
+    top: 0;
+    position: sticky;
+    /*font-size: 1rem;*/
+    /*line-height: 1.5rem;*/
+    /*letter-spacing: 0.01071em;*/
+    vertical-align: inherit;
+    text-align: left;
+}
+
+.resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    width: 3px;
+    cursor: col-resize;
+    opacity: 0;
+}
+
+.resize-handle:hover,
+    /* The following selector is needed so the handle is visible during resize even if the mouse isn't over the handle anymore */
+.resize-handle.header--being-resized {
+    opacity: 1;
+    /*width: 3px;*/
+}
+
+th:hover .resize-handle:not(.header--being-resized) {
+    opacity: 0.2;
+}
+
+/*td:hover .resize-handle:not(.header--being-resized) {*/
+/*    opacity: 0.2;*/
+/*}*/
